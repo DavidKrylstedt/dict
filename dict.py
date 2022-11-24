@@ -1,11 +1,12 @@
 import psycopg2
+
 conn = psycopg2.connect(
-   host="localhost",
-   port=5432,
-   database="dict",
-   user="postgress",
-   password="SuperElla2020"
-)
+    host="localhost",
+    port=5432,
+    database="dict",
+    user="postgres",
+    password="SuperElla2020")
+ 
 
 def read_dict(C):
     cur = C.cursor()
@@ -27,7 +28,8 @@ def save_dict(C):
     cur.close()
 
 while True: ## REPL - Read Execute Program Loop
-    cmd = input("Command: ")
+    print("These commands are available: list, add, delete, quit:")
+    cmd = input("Command: ").strip().lower()
     if cmd == "list":
         print(read_dict(conn))
     elif cmd == "add":
