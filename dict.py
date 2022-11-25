@@ -35,7 +35,8 @@ while True: ## REPL - Read Execute Program Loop
     cmd = input("Command: ").strip().lower()
     if cmd == "list":
         print("Current list:\n")
-        print(read_dict(conn))
+        for i, wd, trans in read_dict(conn):
+            print(f"{i}: {wd} - {trans}")
     elif cmd == "add":
         name = input("  Word: ")
         phone = input("  Translation: ")
