@@ -34,14 +34,18 @@ while True: ## REPL - Read Execute Program Loop
     print("These commands are available: list, add, delete, quit:")
     cmd = input("Command: ").strip().lower()
     if cmd == "list":
+        print("Current list:\n")
         print(read_dict(conn))
     elif cmd == "add":
         name = input("  Word: ")
         phone = input("  Translation: ")
         add_word(conn, name, phone)
+        print(f"Added word: {name}")
     elif cmd == "delete":
         ID = input("  ID: ")
         delete_word(conn, ID)
+        print(f"Deleted word: {ID}")
     elif cmd == "quit":
         save_dict(conn)
+        print("Quits program")
         exit()
